@@ -101,7 +101,7 @@ export const CartProvider = ({
 
   // NOTE: we import auth & supabase lazily here to avoid circular imports at top
   // (placed below so static imports remain unchanged)
-  const placeOrder = async (opts?: { storeId?: string; address?: AddressInput; creditsUsed?: number; payment_method?: string; payment_reference?: string }) => {
+  const placeOrder = async (opts?: { storeId?: string; address?: AddressInput; creditsUsed?: number; payment_method?: string; payment_reference?: string; delivery_address_id?: string }) => {
     try {
       const { supabase } = await import('../lib/supabaseClient');
       // read current session for user id

@@ -7,8 +7,9 @@ let supabaseAnonKey = Constants.expoConfig?.extra?.EXPO_PUBLIC_SUPABASE_PUBLISHA
 
 // Fallback for web (where Constants.expoConfig is undefined)
 if (typeof window !== 'undefined') {
-  supabaseUrl = supabaseUrl || (window.env && window.env.EXPO_PUBLIC_SUPABASE_URL) || (window as any).EXPO_PUBLIC_SUPABASE_URL;
-  supabaseAnonKey = supabaseAnonKey || (window.env && window.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY) || (window as any).EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  const w = window as any;
+  supabaseUrl = supabaseUrl || (w.env && w.env.EXPO_PUBLIC_SUPABASE_URL) || w.EXPO_PUBLIC_SUPABASE_URL;
+  supabaseAnonKey = supabaseAnonKey || (w.env && w.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY) || w.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 }
 
 if (!supabaseUrl || !supabaseAnonKey) {

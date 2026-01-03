@@ -1,10 +1,11 @@
+import { useTheme } from '@/contexts/ThemeContext';
 import React from 'react';
 import {
-  TextInput as RNTextInput,
-  StyleProp,
-  TextStyle,
+    KeyboardTypeOptions,
+    TextInput as RNTextInput,
+    StyleProp,
+    TextStyle,
 } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
 
 interface TextInputProps {
   style?: StyleProp<TextStyle>;
@@ -12,7 +13,7 @@ interface TextInputProps {
   onChangeText: (text: string) => void;
   placeholder?: string;
   secureTextEntry?: boolean;
-  keyboardType?: 'default' | 'email-address';
+  keyboardType?: KeyboardTypeOptions;
 }
 
 export const TextInput = ({

@@ -14,6 +14,7 @@ export const lightTheme = {
     success: '#28A745',
     error: '#DC3545',
     warning: '#FFC107',
+    icon: '#495057',
   },
   spacing: {
     xs: 4,
@@ -59,6 +60,7 @@ export const darkTheme = {
     success: '#4CAF50',
     error: '#F44336',
     warning: '#FFB300',
+    icon: '#E6E6E6',
   },
   spacing: lightTheme.spacing,
   borderRadius: lightTheme.borderRadius,
@@ -66,4 +68,12 @@ export const darkTheme = {
   fontWeight: lightTheme.fontWeight,
 };
 
+export const Colors = {
+  light: lightTheme.colors,
+  dark: darkTheme.colors,
+};
+
+
+
 export type Theme = typeof lightTheme;
+

@@ -58,15 +58,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         let errorMsg = error.message;
-        // Add more details if available
-        if (error.details) {
-          errorMsg += `\nDetails: ${error.details}`;
+        // Add more details if available (some AuthError fields are optional)
+        const errAny = error as any;
+        if (errAny.details) {
+          errorMsg += `\nDetails: ${errAny.details}`;
         }
-        if (error.hint) {
-          errorMsg += `\nHint: ${error.hint}`;
+        if (errAny.hint) {
+          errorMsg += `\nHint: ${errAny.hint}`;
         }
-        if (error.code) {
-          errorMsg += `\nCode: ${error.code}`;
+        if (errAny.code) {
+          errorMsg += `\nCode: ${errAny.code}`;
         }
         // Optionally log to a remote service or show a more helpful message
         return { success: false, error: errorMsg };
